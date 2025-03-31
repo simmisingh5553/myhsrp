@@ -88,14 +88,14 @@
             <div class="col-sm-6 col-md-6 col-lg-4">
               <div class="main-sec ">
                 <h2>High Security Registration Plate</h2>
-                <a href="javascript:void(0)" class="top-btn homebannerbooknow">Order Now</a>
+                <a href="highsecurity.html" class="top-btn homebannerbooknow">Order Now</a>
               </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-4">
               <div class="main-sec clr-blue-1">
                 <h2>Number Plate for
                     Four Wheeler</h2>
-                    <a href="javascript:void(0)" class="top-btn homebannerbooknow">Order Now</a>
+                   <a href="highsecurity1.html" class="top-btn homebannerbooknow">Order Now</a>
               </div>
               
             </div>
@@ -103,7 +103,7 @@
               <div class="main-sec">
                 <h2>Number Plate for
                     Two Wheeler</h2>
-                    <a href="javascript:void(0)" class="top-btn homebannerbooknow">Order Now</a>
+                    <a href="highsecurity2.html" class="top-btn homebannerbooknow">Order Now</a>
               </div>
               
             </div>
@@ -113,7 +113,7 @@
                 <h2>Number Plate for
                   Heavy Wheeler
                   </h2>
-                    <a href="javascript:void(0)" class="top-btn homebannerbooknow">Order Now</a>
+                    <a href="highsecurity3.html" class="top-btn homebannerbooknow">Order Now</a>
               </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-4">
@@ -121,7 +121,7 @@
                 <h2>Number Plate for
                   Three Wheeler
                   </h2>
-                    <a href="javascript:void(0)" class="top-btn homebannerbooknow">Order Now</a>
+                    <a href="highsecurity4.html" class="top-btn homebannerbooknow">Order Now</a>
               </div>
             </div>
           </div>
@@ -184,20 +184,18 @@
 </footer>
 <script>
 $(document).ready(function() {
-
   $('.homebannerbooknow').on('click', function(e) {
-    e.preventDefault(); // Prevent default form submission
-    
+    // Store values in localStorage
     localStorage.setItem('state', $('#state').val());
-    localStorage.setItem('vehicleRegNo', $('#vehicleRegNo').val()); 
-    localStorage.setItem('chassisNo', $('#chassisNo').val()); 
-    localStorage.setItem('engineNo', $('#engineNo').val()); 
-    window.location.href="highSecurity.html";
-
+    localStorage.setItem('vehicleRegNo', $('#vehicleRegNo').val());
+    localStorage.setItem('chassisNo', $('#chassisNo').val());
+    localStorage.setItem('engineNo', $('#engineNo').val());
+    
+    // Allow normal link behavior (redirect to highSecurity.html)
+    // No need for e.preventDefault() anymore
   });
-
-
 });
+
 </script>
 </body>
 
