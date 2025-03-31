@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+   
+<!-- Mirrored from numberbooking.org/highSecurity.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Mar 2025 11:51:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <title></title>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+      <link href="css/bootstrap.min.css" rel="stylesheet"/>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="frontend/css/style.css"/>
+      <style>
+         input, select {
+         width: 100%;
+         padding: 12px !important;
+         margin-top: 5px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         }
+         .myform {
+         display: flex;
+         background: #fff;
+         border-radius: 8px;
+         overflow: hidden;
+         }
+         .sidebar {
+         width: 30%;
+         background: #f5f5f5;
+         padding: 30px;
+         }
+         .sidebar h2 {
+         font-size: 18px;
+         margin-bottom: 15px;
+         }
+         .content {
+         width: 70%;
+         padding: 30px;
+         background: #cdebf5;
+         }
+         .form-step {
+         display: none;
+         }
+         .form-step.active {
+         display: block;
+         }
+         .form-group {
+         margin-bottom: 15px;
+         }
+         label {
+         font-weight: bold;
+         display: block;
+         }
+         input, select {
+         width: 100%;
+         padding: 8px;
+         margin-top: 5px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         }
+         .buttons {
+         display: flex;
+         justify-content: space-between;
+         margin-top: 20px;
+         }
+         .error {
+         color: red;
+         font-size: 14px;
+         margin-top: 5px;
+         display: none;
+         }
+         .error-message {
+         color: red;
+         text-align: center;
+         font-size: 16px;
+         margin-top: 10px;
+         display: none;
+         }
+         .com-form {
+         margin-top: 10px !important;
+         }
+         .qrimg ul li{
+         list-style: none;
+         margin: 10px 0;
+         }
+         @media only screen and (max-width: 572px) {
+         h2 {
+         font-size: 16px !important;
+         font-weight: 600 !important;
+         line-height: 1.5 !important;
+         }
+         .sidebar{
+         display: none;
+         }
+         .content{
+         width: 100%;
+         }
+         .row-reverse{
+         flex-direction: column-reverse;
+         }
+         .content{
+         padding: 10px;
+         }
+         .qrimg img{
+         width: 100%;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <header class="mainmenu__wrap">
+         <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+               <a class="navbar-brand" href="index-2.html"
+                  >
+                  <div class="logo font4" style="height: auto !important; width: 176px;border: 3px solid !important">BOOK-MY-HSRP<i></i><i></i><i></i><i></i></div>
+               </a>
+               <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  >
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div
+                  class="collapse navbar-collapse justify-content-end"
+                  id="navbarNavDropdown"
+                  >
+                  <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a
+                           class="nav-link active"
+                           aria-current="page"
+                           href="orderTracking.html"
+                           >Track Your Order</a
+                           >
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="reAppointment.html"
+                           >Reschedule Appointment</a
+                           >
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="orderCancel.html">Cancel Order</a>
+                     </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="homeInstallation.html"
+                           >Check For Home Installation</a
+                           >
+                     </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="receiptValidity.html">Receipt Validity</a>
+                     </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="contactUs.html">Contact Us</a>
+                     </li>
+                     <li>
+                        <a href="#"><img src="frontend/images/logo.png" class="img-fluid" style="width: 180px;"></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <div class="container-fluid myform">
+         <div class="sidebar">
+            <h2>Step 1 - Booking Details</h2>
+            <h2>Step 2 - Payment Details</h2>
+            <h2>Step 3 - Order Details</h2>
+         </div>
+         <div class="content">
+            <form id="multiStepForm" action="#" method="post" enctype="multipart/form-data">
+               <!-- Step 1 -->
+               <div class="form-step active" id="step1">
+                  <h2>Booking Details</h2>
+                  <p>Please fill in the details below so that we can get in contact with you about our product.</p>
+                  <h5>Vehicle Information</h5>
+                  <div class="row  com-form ">
+                     <div class="col-md-6">
+                        <label for="" class="form-label">State* <span class="error step1_err serviceState_err"> Required</span></label>
+                        <select name="vehicleState" id="state">
+                           <option>Select State</option>
+                           <option value="Andhra Pradesh">Andhra Pradesh</option>
+                           <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                           <option value="Assam">Assam</option>
+                           <option value="Bihar">Bihar</option>
+                           <option value="Chhattisgarh">Chhattisgarh</option>
+                           <option value="Goa">Goa</option>
+                           <option value="Gujarat">Gujarat</option>
+                           <option value="Haryana">Haryana</option>
+                           <option value="Himachal Pradesh">Himachal Pradesh</option>
+                           <option value="Jharkhand">Jharkhand</option>
+                           <option value="Karnataka">Karnataka</option>
+                           <option value="Kerala">Kerala</option>
+                           <option value="Madhya Pradesh">Madhya Pradesh</option>
+                           <option value="Maharashtra">Maharashtra</option>
+                           <option value="Manipur">Manipur</option>
+                           <option value="Meghalaya">Meghalaya</option>
+                           <option value="Mizoram">Mizoram</option>
+                           <option value="Nagaland">Nagaland</option>
+                           <option value="Odisha">Odisha</option>
+                           <option value="Punjab">Punjab</option>
+                           <option value="Rajasthan">Rajasthan</option>
+                           <option value="Sikkim">Sikkim</option>
+                           <option value="Tamil Nadu">Tamil Nadu</option>
+                           <option value="Telangana">Telangana</option>
+                           <option value="Tripura">Tripura</option>
+                           <option value="Uttar Pradesh">Uttar Pradesh</option>
+                           <option value="Uttarakhand">Uttarakhand</option>
+                           <option value="West Bengal">West Bengal</option>
+                           <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                           <option value="Chandigarh">Chandigarh</option>
+                           <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                           <option value="Lakshadweep">Lakshadweep</option>
+                           <option value="Delhi">Delhi</option>
+                           <option value="Puducherry">Puducherry</option>
+                        </select>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="" class="form-label">Vehicle Reg No* <span class="error step1_err vehicleregno_err"> Required</span></label>
+                        <input type="text" class="form-control" name="vehicleregNo"  placeholder="Enter Vehicle Reg No">
+                        <p>(Reg No. Ex.- DLXXXXX01)</p>
+                     </div>
+                  </div>
+                  <div class="row com-form">
+                     <div class="col-md-6">
+                        <label for="" class="form-label">Vehicle Category* <span class="error step2_err vehicleCategory_err"> Required</span></label>
+                        <select name="vehicleType" class="formdatas" id="vehicleType" required>
+                           <option value="">Select Vehicle Type</option>
+                                                      <option value="5">heavy-vehicle</option>
+                                                      <option value="4">Four-wheeler</option>
+                                                      <option value="3">Electric-vehicle</option>
+                                                      <option value="2">Three-wheeler</option>
+                                                      <option value="1">Two Wheeler</option>
+                                                   </select>
+                     </div>
+                     <div class="col-md-6 com-form">
+                        <label for="chassisNo" class="form-label">Chassis No* (XXXXX12345) </label>
+                        <input type="text" class="form-control formdatas" name="chassisNo" id="chassisNo" placeholder="Enter Chassis No" required="">
+                        <p>(Kindly enter last 5 digits including special characters (eg *,~,-,/,.)</p>
+                     </div>
+                     <div class="col-md-6 com-form">
+                        <label for="engineNo" class="form-label">Engine No/Motor No* (XXXXX12345) </label>
+                        <input type="text" class="form-control formdatas" id="engineNo" name="engineNo" placeholder="Enter Engine No" required="">
+                        <p>(Kindly enter last 5 digits)</p>
+                     </div>
+                     <!--<div class="col-md-6">
+                        <label for="" class="form-label">Service Type* <span class="error step2_err vehicleCategory_err"> Required</span></label>
+                        <select name="serviceType" class="formdatas" id="serviceType" required="">
+                                  <option value="">Select Service Type</option>
+                                 <option value="High Security Color Sticker">High Security Color Sticker</option>
+                                 <option value="Replacement">Replacement</option>
+                                 <option value="High Security Electric Vehicle">High Security Electric Vehicle</option>
+                                 <option value="Color Sticker">Color Sticker</option>
+                                 <option value="High Security Tractor">High Security Tractor</option>
+                              </select>
+                        </div>-->
+                  </div>
+                  <div class="vehicledetails step2 mt-5" style="display: block;">
+                     <div class="row  com-form mt-5  border-form">
+                        <div class="col-md-12">
+                           <div class="text mb-3 pt-2  ">
+                              <h4>Contact Information</h4>
+                           </div>
+                        </div>
+                        <div class="col-md-6 com-form">
+                           <label for="" class="form-label">Owner Name* <span class="error step2_err ownerName_err"> Required</span></label>
+                           <input type="text" class="form-control" name="ownerName" id="ownerName" placeholder="Enter Owner Name">
+                        </div>
+                        <div class="col-md-6 com-form">
+                           <label for="" class="form-label">Email ID* <span class="error step2_err emailAddress_err"> Required</span></label>
+                           <input type="text" class="form-control" id="emailAddress" name="emailAddress"  placeholder="Enter Email ID">
+                        </div>
+                     </div>
+                     <div class="row  com-form">
+                        <div class="col-md-6">
+                           <label for="" class="form-label">Mobile No* <span class="error step2_err mobileNo_err"> Required</span></label>
+                           <input type="text" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Mobile Number">
+                        </div>
+                        <div class="col-md-6 com-form">
+                           <label for="" class="form-label">Delivery Address <span class="error step2_err billingAddress_err"> Required</span></label>
+                           <input type="text" class="form-control" name="billingAddress" id="billingAddress"  placeholder="Enter Delivery Address">
+                        </div>
+                     </div>
+                     <div class="row  com-form">
+                        <div class="col-md-6">
+                           <label for="" class="form-label">State* <span class="error step2_err billingState_err"> Required</span></label>
+                           <select name="billingState" id="billingState">
+                              <option>Select State</option>
+                              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                              <option value="Assam">Assam</option>
+                              <option value="Bihar">Bihar</option>
+                              <option value="Chhattisgarh">Chhattisgarh</option>
+                              <option value="Goa">Goa</option>
+                              <option value="Gujarat">Gujarat</option>
+                              <option value="Haryana">Haryana</option>
+                              <option value="Himachal Pradesh">Himachal Pradesh</option>
+                              <option value="Jharkhand">Jharkhand</option>
+                              <option value="Karnataka">Karnataka</option>
+                              <option value="Kerala">Kerala</option>
+                              <option value="Madhya Pradesh">Madhya Pradesh</option>
+                              <option value="Maharashtra">Maharashtra</option>
+                              <option value="Manipur">Manipur</option>
+                              <option value="Meghalaya">Meghalaya</option>
+                              <option value="Mizoram">Mizoram</option>
+                              <option value="Nagaland">Nagaland</option>
+                              <option value="Odisha">Odisha</option>
+                              <option value="Punjab">Punjab</option>
+                              <option value="Rajasthan">Rajasthan</option>
+                              <option value="Sikkim">Sikkim</option>
+                              <option value="Tamil Nadu">Tamil Nadu</option>
+                              <option value="Telangana">Telangana</option>
+                              <option value="Tripura">Tripura</option>
+                              <option value="Uttar Pradesh">Uttar Pradesh</option>
+                              <option value="Uttarakhand">Uttarakhand</option>
+                              <option value="West Bengal">West Bengal</option>
+                              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                              <option value="Chandigarh">Chandigarh</option>
+                              <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                              <option value="Lakshadweep">Lakshadweep</option>
+                              <option value="Delhi">Delhi</option>
+                              <option value="Puducherry">Puducherry</option>
+                           </select>
+                        </div>
+                        <div class="col-md-6 com-form">
+                           <label for="" class="form-label">City* <span class="error step2_err billingCity_err"> Required</span></label>
+                           <input type="text" class="form-control" name="billingCity" id="billingCity"  placeholder="Enter City">
+                        </div>
+                     </div>
+                     <div class="buttons">
+                        <button type="button" class="next_button step2_btn" onclick="nextStep()">Next</button>
+                     </div>
+                  </div>
+               </div>
+               <!-- Vehicle Details Enter Section End -->
+               <!-- Owner Details Enter Section Start -->
+               <!-- Step 2 -->
+               <div class="form-step" id="step2">
+                  <h2>Payment Information</h2>
+                  <div class="row com-form row-reverse">
+                      <div class="col-md-6">
+                          <label for="fileupload" class="form-label">Upload Transaction Details* <span class="error step2_err billingCity_err"> Required</span></label>
+                          <input type="file" class="form-control" name="fileupload" id="fileupload" required>
+                          <div class="buttons">
+                              <button type="button" onclick="prevStep()" class="reset">Back</button>
+                              <button type="submit" name="btnSubmit" class="next_button step2_btn">Submit</button>
+                          </div>
+                      </div>
+                      <div class="col-md-6 qrimg">
+                          <div id="qrCodeContainer">
+                              <img src="/frontend/images/qr.png" alt="QR Code" class="img-fluid" style="width: 300px;">
+                          </div>
+                          <ul>
+                              <li>HSRP Cost <br>(Included Fitment Cost) <span id="hsrpCost">Rs. 1199.00</span></li>
+                          </ul>
+                          <div id="paymentLinksContainer"></div>
+                      </div>
+                  </div>
+              </div>
+            </form>
+         </div>
+      </div>
+      <script>
+         let currentStep = 1;
+     
+         function nextStep() {
+             if (validateForm()) {
+                 document.getElementById(`step${currentStep}`).classList.remove('active');
+                 currentStep++; // Move to the next step
+                 document.getElementById(`step${currentStep}`).classList.add('active');
+             }
+         }
+     
+         function prevStep() {
+             document.getElementById(`step${currentStep}`).classList.remove('active');
+             currentStep--; // Move to the previous step
+             document.getElementById(`step${currentStep}`).classList.add('active');
+         }
+     
+         function validateForm() {
+             let isValid = true;
+             const inputs = document.querySelectorAll(`#step${currentStep} input, #step${currentStep} select`);
+     
+             inputs.forEach(input => {
+                 let errorSpan = input.nextElementSibling;
+                 if (!errorSpan || !errorSpan.classList.contains("error")) {
+                     errorSpan = document.createElement("span");
+                     errorSpan.classList.add("error");
+                     input.parentNode.appendChild(errorSpan);
+                 }
+     
+                 if (!input.value.trim()) {
+                     errorSpan.textContent = "This field is required.";
+                     errorSpan.style.display = "block";
+                     isValid = false;
+                 } else {
+                     errorSpan.style.display = "none";
+                 }
+             });
+     
+             return isValid;
+         }
+     
+         // Remove error message when user types/selects
+         document.querySelectorAll("input, select").forEach(input => {
+             input.addEventListener("input", function () {
+                 let errorSpan = this.nextElementSibling;
+                 if (errorSpan && errorSpan.classList.contains("error")) {
+                     errorSpan.style.display = "none";
+                 }
+             });
+         });
+     
+         // Handle form submission
+         document.getElementById('multiStepForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        if (!validateForm()) {
+            return; // Stop if validation fails
+        }
+        const orderId = Math.floor(10000 + Math.random() * 90000); // Generate a random 5-digit order ID
+        localStorage.setItem('orderId', orderId); // Store order ID in local storage
+        window.location.href = 'thank_you.html'; // Redirect to thank you page
+    });
+     </script>
+
+      <footer class="main-footer-1">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="footer-list">
+                     <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacyPolicy.html">Privacy Policy</a></li>
+                        <li><a href="#">Refund & Cancellation Policy</a></li>
+                        <li><a href="safeSecureTransactions.html">Safe & Secure Transaction</a></li>
+                        <li><a href="termsConditions.html">Terms & Conditions</a></li>
+                        <li><a href="governmentNotifications.html">Government Notifications</a></li>
+                        <li><a href="aboutUs.html">About HSRP</a></li>
+                        <li><a href="grievanceRedressal.html">Grievance Redressal</a></li>
+                        <li><a href="downloadReceipt.html">Reprint Receipt</a></li>
+                        <li><a href="#" class="copyright">© 2025 numberbooking.org</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </body>
+
+<!-- Mirrored from numberbooking.org/highSecurity.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Mar 2025 11:51:51 GMT -->
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#vehicleType").on("change", function () {
+            var vehicleId = $(this).val(); // Get selected vehicle ID
+            
+            if (vehicleId) {
+                $.ajax({
+                    type: "POST",
+                    url: "get_price.php", // PHP file to fetch price and QR code details
+                    data: { id: vehicleId },
+                    success: function (response) {
+                        try {
+                            var data = JSON.parse(response);
+
+                            // Check if data contains any error
+                            if (data.error) {
+                                console.error(data.error);
+                                return;
+                            }
+
+                            // Show the price
+                            $("#hsrpCost").text("Rs. " + data.price);
+
+                            // Show QR code image
+                            if (data.qr_image) {
+                                $("#qrCodeContainer").html('<img src="myimages/' + data.qr_image + '" alt="QR Code" class="img-fluid" style="width: 300px;">');
+                            }
+
+                            // Show payment links (if available)
+                            if (data.phone_pay) {
+                                $("#paymentLinksContainer").html('<a href="' + data.phone_pay + '" target="_blank"><img src="frontend/images/phone.png" style="width: 70px;" class="img-fluid"></a>');
+                            }
+                            if (data.paytm_link) {
+                                $("#paymentLinksContainer").append('<a href="' + data.paytm_link + '" target="_blank"><img src="frontend/images/paytm.png" style="width: 70px;" class="img-fluid"></a>');
+                            }
+                            if (data.google_pay) {
+                                $("#paymentLinksContainer").append('<a href="' + data.google_pay + '" target="_blank"><img src="frontend/images/gpay.png" style="width: 70px;" class="img-fluid"></a>');
+                            }
+                        } catch (e) {
+                            console.error("Failed to parse JSON:", e);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX Error:", error);
+                    }
+                });
+            } else {
+                $("#hsrpCost").text("Rs. 0.00");
+                $("#qrCodeContainer").html(''); // Clear QR code
+                $("#paymentLinksContainer").html(''); // Clear payment links
+            }
+        });
+    });
+</script>
