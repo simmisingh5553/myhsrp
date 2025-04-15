@@ -1,15 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Thank You</title>
+    <meta charset="UTF-8">
+    <title>Thank You 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        #orderId {
+            font-weight: bold;
+            color: #00796b;
+            font-size: 1.4rem;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h1>Thank You for Your Order!</h1>
-    <p>Your order ID is: <span id="orderId"></span></p>
-    <p>We will contact you in 5 to 6 days.</p>
+
+    <h1>Thank You for Your Order! 🎉</h1>
+    <p>Your order ID is:</p>
+    <div id="orderId">...</div>
+    <p>We will contact you within 5 to 6 business days. 😊</p>
+
+    <div class="footer">
+        For support, contact <strong>bookmyhsrp@gmail.com</strong>
+    </div>
+
     <script>
-        // Retrieve and display the order ID
-        document.getElementById('orderId').textContent = localStorage.getItem('orderId');
+        // Function to generate a single random order ID
+        function generateOrderId() {
+            const prefix = 'HSRP';
+            const randomNum = Math.floor(100000 + Math.random() * 900000); // 6-digit number
+            return `${prefix}-${randomNum}`;
+        }
+
+        // Generate and display the order ID
+        const orderId = generateOrderId();
+        document.getElementById('orderId').textContent = orderId;
+
+        // Optionally store in localStorage
+        localStorage.setItem('orderId', orderId);
     </script>
 </body>
 </html>
